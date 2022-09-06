@@ -21,18 +21,31 @@ parallel::stopCluster(clusters)
 rm(clusters, cores)
 correlations <- dplyr::bind_rows(X)
 
+alternative <- tidyr::pivot_longer(data = correlations,
+                                   cols = c(year, longitude, latitude, hk_prevalence, asc_prevalence, tt_prevalence, coordinates),
+                                   names_to = 'reference', values_to = 'cramer')
+
 
 # storage
-storage <- file.path(getwd(), 'warehouse', 'missing', 'correlation', 'cramer.csv')
+storage <- file.path(getwd(), 'warehouse', 'missing', 'correlation')
 if (file.exists(storage)) {
   base::unlink(x = storage, recursive = TRUE)
 }
-dir.create(path = base::dirname(storage), recursive = TRUE)
+dir.create(path = storage, recursive = TRUE)
 
 
 # write
 utils::write.table(x = correlations,
-                   file = storage,
+                   file = file.path(storage, 'wide.csv'),
+                   append = FALSE,
+                   sep = ',',
+                   na = '',
+                   row.names = FALSE,
+                   col.names = TRUE,
+                   fileEncoding = 'UTF-8')
+
+utils::write.table(x = alternative,
+                   file = file.path(storage, 'long.csv'),
                    append = FALSE,
                    sep = ',',
                    na = '',
