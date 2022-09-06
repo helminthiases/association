@@ -1,0 +1,9 @@
+Package: association
+Type: Package
+Title: Independent & Dependent Variables Correlations
+Version: 1.0
+Date: 2022-09-05
+Author: greyhypotheses
+Maintainer: greyhypotheses
+Description: Evaluation of Cramer's V
+License:
