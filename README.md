@@ -8,7 +8,7 @@ Running the program
 
 calculates the degree of association, i.e., the correlation, 
 [between the null cells of pairs of variables](https://helminthiases.github.io/data/pattern.html#null-regression--correlation); 
-per country data set.  The results are explorable [online](https://helminthiases.github.io/data/pattern.html#null-correlation).
+per country data set. &nbsp; The results are explorable [online](https://helminthiases.github.io/data/pattern.html#null-correlation).
 
 <br>
 <br>
