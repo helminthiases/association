@@ -8,18 +8,19 @@
 #'
 Activate <- function () {
 
-  packages <- c('data.table', 'tidyverse', 'moments', 'rmarkdown', 'latex2exp', 'mapview',
-                'roxygen2', 'healthcareai', 'equatiomatic', 'rstatix', 'matrixStats', 'patchwork',
+  packages <- c('IRdisplay', 'data.table', 'tidyverse', 'doParallel', 'moments', 'rmarkdown',
+                'latex2exp', 'mapview', 'roxygen2', 'equatiomatic', 'rstatix', 'matrixStats', 'patchwork',
                 'geoR', 'PrevMap', 'kableExtra', 'bookdown', 'lme4', 'nlme', 'DescTools',
-                'sf', 'raster', 'tmap', 'terra', 'spData', 'tidygeocoder', 'rnaturalearth', 'geodata')
+                'sf', 'raster', 'tmap', 'terra', 'spData', 'tidygeocoder', 'rnaturalearth', 'geodata',
+                'httr', 'leaflet', 'splancs', 'paletteer', 'ggthemes', 'ggcorrplot')
 
   # Activate
   .activate <- function (x){
-    library(x, character.only = TRUE)
-    if (x == 'rmarkdown') {library(tinytex)}
+    library(x, character.only = TRUE, lib.loc = 'J:/Programs/R/R-4.1.3/library')
+    if (x == 'rmarkdown') {library(tinytex, lib.loc = 'J:/Programs/R/R-4.1.3/library')}
   }
   lapply(packages[!(packages %in% c('tidyverse', 'healthcareai', 'equatiomatic', 'data.table',
-                                    'terra', 'raster'))], .activate)
+                                    'terra', 'raster', 'tidygeocoder', 'rnaturalearth', 'leaflet', 'splancs'))], .activate)
 
   # Special Case
   if ('tidyverse' %in% packages) {
